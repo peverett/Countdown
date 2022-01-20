@@ -10,7 +10,7 @@ They change to Amber with < 30 seconds and red when < 10.
 * Windows OS only
 """
 
-__version__ = "2.0"
+__version__ = "2.1"
 __author__ = "simon.peverett@gmail.com"
 __all__ = ['__version__', '__author__']
 
@@ -61,10 +61,10 @@ def parse_args(argv):
         help="Count down seconds, range is 0..59, default is 0."
         )
     parser.add_argument(
-        "-p", "--position", type=str, nargs="?", default="tl",
+        "-p", "--position", type=str, nargs="?", default="br",
         help="Position on screen for the timer, options are: "
-        "tl (top left - default), tr (top right), bl (bottom left), "
-        "br (bottom right)"
+        "tl (top left), tr (top right), bl (bottom left), "
+        "br (bottom right - default)"
         )
     return parser.parse_args(argv)
 
@@ -236,7 +236,7 @@ class CountdownTimer():
 
         if self.args.display < 1 or self.args.display > self.no_of_monitors:
             raise SystemExit(
-                "The command line arguement 'monitor' is {} outside the allowed"
+                "The command line arguement 'display' is {} outside the allowed"
                 " the allowed range 1..{}".format(self.args.display, self.no_of_monitors)
                 )
         monitor_pyhandle = self.monitors[self.args.display-1][0]
