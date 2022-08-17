@@ -6,7 +6,7 @@ They change to Amber with < 30 seconds and red when < 10.
 
 * The window frame is always on top and borderless
 * 2-minutes by default.
-* It Can be placed in the corner of any monitor. 
+* It can be placed in the corner of any monitor. 
 * Windows OS only
 """
 
@@ -107,7 +107,7 @@ class CountdownTimer():
         self.root.attributes("-topmost", "true")
 
         self.initPositionManagement()
-        self.position(self.args.position.lower())
+        #self.position(self.args.position.lower())
 
     def initCountdownFrame(self):
         """Create the Frame for the Countdown app, buttons, etc."""
@@ -284,7 +284,7 @@ class CountdownTimer():
             )
 
     def BottomRight(self ):
-        """Position the root window so it is in the bottom right cornder of
+        """Position the root window so it is in the bottom right corner of
         the work area, This is done by taking the bottom right coord and 
         subtracting the root window size.
         """
@@ -304,10 +304,6 @@ class CountdownTimer():
         _, height = self.GetRootGeometry()
         y = self.work_area[self.BR_Y] - height
         self.root.geometry("+{}+{}".format(self.work_area[self.TL_X], y))
-
-    def position(self, pos_str):
-        """Pos string should be in the format 'tr', 'tl', 'br', 'bl'."""
-        pass
 
 def main():
     """Main function"""
@@ -330,14 +326,7 @@ def main():
             )
 
     root = Tk()
-    
-
     control = CountdownTimer(root, args)
-
-
-
-
-
     root.mainloop()
     
 if __name__ == "__main__":
